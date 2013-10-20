@@ -16,7 +16,7 @@ var PICTURES_FOLDER = '../data/pictures/',
 
 //vars
 var downloading = {},
-    page = 265;
+    page = 1;
 
 //helpers
 var allFinished = function () {
