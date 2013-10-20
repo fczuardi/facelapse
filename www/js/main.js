@@ -46,7 +46,8 @@ require(
         }
         document.body.addEventListener('keypress', function(event){
             var currentImg = document.getElementById('current'),
-                increment = 0;
+                increment = 0,
+                output;
             console.log('key pressed', event.keyCode, event.charCode);
             switch (event.keyCode){
                 case 39:
@@ -109,15 +110,39 @@ require(
                             updateAttributes();
                             console.log('previous');
                             break;
+                        case 99:
+                            //c (for copy/paste)
+                            return;
+                            break;
                     }
             }
             newAttributes[currentIndex] = {
                 'width': currentImg.style.width,
+                'height': currentImg.clientHeight,
                 'left': currentImg.style.left,
                 'top': currentImg.style.top,
                 'filename': currentImg.src
             };
-            document.getElementById('output').innerHTML = JSON.stringify(newAttributes, null, '  ');
+            output = 'convert -size 1000x1000 xc:white data/moved/base.jpg\n';
+            newAttributes.forEach(function(image, index){
+                var w = parseInt(image.width, 10),
+                    h = parseInt(image.height, 10),
+                    l = parseInt(image.left, 10),
+                    t = parseInt(image.top, 10),
+                    filename = image.filename.substring( image.filename.lastIndexOf('/')+1, image.filename.length ),
+                    paddedIndex = String('000' + index).slice(-3);
+
+                l = (l>=0)?('+' + l):(l);
+                t = (t>=0)?('+' + t):(t);
+
+
+                output += 'composite -size 1000x1000 -geometry '+
+                            w +'x'+ h + l + t +' data/pictures/'+ filename +
+                            ' data/moved/base.jpg data/moved/' + paddedIndex + '.jpg\n';
+            });
+            output += 'convert -loop 1 data/moved/0*.jpg facelapse.gif\n';
+            // document.getElementById('output').innerHTML = JSON.stringify(newAttributes, null, '  ');
+            document.getElementById('output').innerHTML = output;
         });
     }
 );

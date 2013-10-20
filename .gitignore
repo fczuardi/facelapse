@@ -3,3 +3,5 @@ config/flickr_keys.js
 data/pictures/*.jpg
 data/metadata/*.json
 data/edit/*
+data/moved/*
+facelapse.gif
