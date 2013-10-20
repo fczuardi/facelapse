@@ -12,7 +12,8 @@ var FlickrConfig = require('../config/flickr_keys').config;
 
 //constants
 var PICTURES_FOLDER = '../data/pictures/',
-    PICTURES_PER_PAGE = 10;
+    PICTURES_PER_PAGE = 10,
+    FLICKR_USER_ID = '37959695@N06';
 
 //vars
 var downloading = {},
@@ -66,14 +67,14 @@ function startDownloadingPage(page){
     console.log('Starting page '+ page);
     api({
         method: 'flickr.people.getPublicPhotos',
-        user_id: '37959695@N06',
+        user_id: FLICKR_USER_ID,
         per_page: PICTURES_PER_PAGE,
         page: page,
         extras: 'license,url_o,url_z,url_c'
     }, function (err, response){
         var filename;
         if (err) {
-            console.error('Could not load user id:', err);
+            console.error('Could not load user  photo data:', err);
         } else {
             // console.log(response.photos.photo);
             console.log(response.photos.photo.length);

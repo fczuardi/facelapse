@@ -1,3 +1,4 @@
 node_modules
 config/flickr_keys.js
 data/pictures/*.jpg
+data/metadata/*.json
