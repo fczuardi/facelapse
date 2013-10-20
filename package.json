@@ -16,14 +16,15 @@
     "test": "grunt"
   },
   "devDependencies": {
-    "flickr": "~0.1.0"
+    "flickr-with-uploads": "~1.0.4"
   },
   "jshintConfig": {
     "globals": {
       "console": true,
       "exports": true,
       "require": true,
-      "define": true
+      "define": true,
+      "__filename": true
     }
   },
   "engines": {
