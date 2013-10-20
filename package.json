@@ -1,0 +1,28 @@
+{
+    "name": "facelapse",
+    "version": "0.1.0",
+    "fullName": "Face Lapse",
+    "description": "A web based tool to create photo timelapses aligning one person's face.",
+    "license": "AGPL",
+    "author": {
+        "name": "Fabricio C Zuardi",
+        "url": "http://fabricio.org"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fczuardi/facelapse.git"
+    },
+    "scripts": {
+        "test": "grunt"
+    },
+    "devDependencies": {
+    },
+    "jshintConfig": {
+        "globals": {
+            "console": true
+        }
+    },
+    "engines": {
+        "node": ">=0.8"
+    }
+}
