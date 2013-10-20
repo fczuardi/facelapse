@@ -24,7 +24,8 @@
       "exports": true,
       "require": true,
       "define": true,
-      "__filename": true
+      "__filename": true,
+      "requirejs": true
     }
   },
   "engines": {

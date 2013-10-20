@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Facelapse Maker</title>
+        <meta name="description" content="A tool to create facelapses.">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <h1>Face Lapse Maker</h1>
+        <div class="picture_container">
+            <img id="current" style="left:0px;top:10px;width:800px" src="../data/pictures/8536666487_d56c66c2c0_c.jpg" />
+            <img id="previous" style="left:0px;top:10px;width:800px" src="../data/pictures/8536666509_a6f28a1132_c.jpg" />
+        </div>
+        <div class="guide">
+            <img src="svg/ellipse.svg" type="image/svg+xml">
+        </div>
+        <textarea id="output">
+
+        </textarea>
+        <script src="js/lib/requirejs/require.js" data-main="js/main"></script>
+    </body>
+</html>

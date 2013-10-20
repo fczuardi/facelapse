@@ -1,0 +1,27 @@
+.picture_container{
+    position: absolute;
+    width:800px;
+    height: 531px;
+    overflow: hidden;
+}
+.picture_container img{
+    position: absolute;
+}
+.picture_container #previous{
+    opacity: 0;
+}
+.guide{
+    width: 800px;
+    height: 300px;
+    position: absolute;
+}
+.guide img{
+    position: absolute;
+    width: 100%;
+}
+#output{
+    position: absolute;
+    right:0;
+    width:400px;
+    height:600px;
+}
