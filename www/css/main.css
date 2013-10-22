@@ -1,3 +1,9 @@
+::selection {
+    background: transparent; /* Safari */
+    }
+::-moz-selection {
+    background: transparent; /* Firefox */
+}
 .picture_container{
     position: absolute;
     width:800px;
@@ -9,6 +15,12 @@
 }
 .picture_container #previous{
     opacity: 0;
+}
+.picture_container #current{
+    border: 4px solid white;
+}
+.picture_container #current[data-selected=true]{
+    border-color: yellow;
 }
 .guide{
     width: 800px;
@@ -22,6 +34,7 @@
 #output{
     position: absolute;
     right:0;
-    width:800px;
+    width:270px;
     height:600px;
+    overflow: hidden;
 }
