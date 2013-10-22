@@ -16,9 +16,12 @@ require(
         var listData,
             photoList,
             currentIndex = 0,
-            photoCountStart = 500,
+            photoCountStart = 0,
+            firstJSON = '../data/metadata/data_page_001.json',
+            // photoCountStart = 500,
+            // firstJSON = '../data/metadata/data_page_006.json',
             newAttributes = [];
-        text.get('../data/metadata/data_page_006.json', function(data){
+        text.get(firstJSON, function(data){
             listData = JSON.parse(data);
             photoList = listData.photos.photo;
             document.getElementById('current').setAttribute('src', photoList[currentIndex].url_c);
@@ -44,9 +47,10 @@ require(
             return '../data/pictures/' + url.substring( url.lastIndexOf('/')+1, url.length );
         }
         function updatePhotoURLs(){
+            var previousSelected = getPreviousSelectedPhoto();
             document.getElementById('current').setAttribute('src', getLocalPictureURL(photoList[currentIndex].url_c));
-            if (photoList[currentIndex-1] !== undefined){
-                document.getElementById('previous').setAttribute('src', getLocalPictureURL(photoList[currentIndex-1].url_c));
+            if (photoList[previousSelected] !== undefined){
+                document.getElementById('previous').setAttribute('src', getLocalPictureURL(photoList[previousSelected].url_c));
             } else{
                 document.getElementById('previous').setAttribute('src', '');
             }
@@ -181,8 +185,7 @@ require(
                                 ' data/moved/base.jpg data/front/' + paddedIndex + '.jpg\n';
                 }
             });
-            output += 'convert -loop 1 data/front/*.jpg facelapse_front.gif\n';
-            // document.getElementById('output').innerHTML = JSON.stringify(newAttributes, null, '  ');
+            output += 'convert -loop 1 data/moved/*.jpg facelapse.gif\n';
             document.getElementById('output').innerHTML = output;
         });
     }
