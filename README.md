@@ -1,3 +1,5 @@
+![Facelapse example](http://i.imgur.com/7OjPG19.gif)
+
 # 1 install
     git clone https://github.com/fczuardi/facelapse.git
     cd facelapse
