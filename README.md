@@ -17,6 +17,16 @@
     mkdir -p data/metadata
 
 # 5 use the web UI
+* serve www/index.html with your web server of choice and open it on a browser (tested with Firefox Nightly)
+* use the keyboard shortcuts:
+  * s: select a photo to be used in the facelapse
+  * . and ,: go to next and previous picture
+  * > and <: go to next and previous selected picture
+  * arrow keys: move the picture
+  * shift+arrow keys: move the picture with bigger steps
+  * ] and [: scale up or down
+  * = and -: scale up or down with bigger steps
+* copy the generated imagemagick commands
 
 # 6 run the generated imagemagic code
     mkdir -p data/moved

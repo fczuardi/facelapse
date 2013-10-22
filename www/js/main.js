@@ -24,6 +24,22 @@ require(
             document.getElementById('current').setAttribute('src', photoList[currentIndex].url_c);
             document.getElementById('previous').setAttribute('src', '');
         });
+        function getPreviousSelectedPhoto(){
+            for (var i = currentIndex - 1; i >= 0; i--) {
+                if (newAttributes[i].selected === 'true'){
+                    return i;
+                }
+            }
+            return currentIndex;
+        }
+        function getNextSelectedPhoto(){
+            for (var i = currentIndex + 1; i < newAttributes.length; i++) {
+                if (newAttributes[i].selected === 'true'){
+                    return i;
+                }
+            }
+            return currentIndex;
+        }
         function getLocalPictureURL(url){
             return '../data/pictures/' + url.substring( url.lastIndexOf('/')+1, url.length );
         }
@@ -110,18 +126,28 @@ require(
                             currentImg.style.left = (parseInt(currentImg.style.left, 10) - increment/2) + 'px';
                             break;
                         case 46:
-                            // >
-                            console.log('next');
+                            // .
                             currentIndex += 1;
                             updatePhotoURLs();
                             updateAttributes();
                             break;
                         case 44:
-                            // <
+                            // ,
                             currentIndex -= 1;
                             updatePhotoURLs();
                             updateAttributes();
-                            console.log('previous');
+                            break;
+                        case 62:
+                            // >
+                            currentIndex = getNextSelectedPhoto();
+                            updatePhotoURLs();
+                            updateAttributes();
+                            break;
+                        case 60:
+                            // <
+                            currentIndex = getPreviousSelectedPhoto();
+                            updatePhotoURLs();
+                            updateAttributes();
                             break;
                         case 99:
                             // c (for copy/paste)

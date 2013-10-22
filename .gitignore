@@ -4,4 +4,9 @@ data/pictures/*.jpg
 data/metadata/*.json
 data/edit/*
 data/moved/*
-facelapse.gif
+data/front/*
+data/low/*
+*.gif
+*.avi
+*.mp4
+*.mov
